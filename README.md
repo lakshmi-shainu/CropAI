@@ -1,50 +1,69 @@
-# Welcome to your Expo app 👋
+# 🌱 Crop AI — Smart Greenhouse Irrigation System
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+### Crop-Database-Driven Smart Irrigation for Drought-Prone Regions
 
-## Get started
+Crop AI is a low-cost IoT-based smart greenhouse irrigation system designed to support efficient water management in drought-prone regions.
 
-1. Install dependencies
+Unlike traditional timer-based irrigation systems, Crop AI considers both **real-time soil moisture** and the **specific moisture requirement of a crop at its current growth stage** before making an irrigation decision.
 
-   ```bash
-   npm install
-   ```
+The system uses an **ESP8266 microcontroller, soil moisture sensors, water-level monitoring, a crop database, relay-controlled irrigation, and a monitoring dashboard**.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🌾 Problem
 
-In the output, you'll find options to open the app in a
+Agriculture in drought-prone regions faces challenges such as:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Water scarcity
+- Irregular rainfall
+- Over-irrigation
+- Under-irrigation
+- Fixed timer-based watering
+- Different water requirements at different crop growth stages
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Traditional irrigation systems often use fixed schedules or a single moisture threshold, which does not adapt to the changing requirements of crops.
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## 💡 Our Solution
 
-```bash
-npm run reset-project
-```
+Crop AI introduces a **crop-stage-aware irrigation approach**.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+The system:
 
-## Learn more
+1. Selects the crop and its current growth stage.
+2. Retrieves the required moisture threshold from the crop database.
+3. Reads real-time soil moisture.
+4. Monitors available water in the tank.
+5. Compares actual moisture with the required threshold.
+6. Activates irrigation only when necessary.
+7. Displays system information through a monitoring dashboard.
 
-To learn more about developing your project with Expo, look at the following resources:
+This creates a continuous feedback loop between the crop database, sensors, controller, and irrigation system.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## ⚙️ How Crop AI Works
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```text
+        Crop Selection
+              ↓
+      Growth Stage Selection
+              ↓
+      Crop Database
+              ↓
+    Required Moisture Level
+              ↓
+      Soil Moisture Sensor
+              ↓
+       ESP8266 Controller
+              ↓
+     Compare Moisture Values
+              ↓
+      ┌───────┴────────┐
+      ↓                ↓
+ Below Threshold    Adequate
+      ↓                ↓
+ Pump ON            Pump OFF
+      ↓                ↓
+ Irrigation       Continue Monitoring
